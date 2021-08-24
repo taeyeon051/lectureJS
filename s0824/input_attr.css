@@ -1,0 +1,31 @@
+form {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="button"] {
+    width: 60%;
+    height: 45px;
+    margin-left: -40px;
+}
+
+div {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid purple;
+}
+
+div:nth-child(2) {
+    height: 100px;
+}
+
+div:nth-child(4) {
+    height: 270px;
+}
+
+button {
+    width: 40%;
+    height: 40px;
+    margin: 10px;
+    float: left;
+}
