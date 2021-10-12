@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let num = prompt("구구단 몇 단?", "1~9의 정수입력");
+        if (isNaN(num * 1)) alert('숫자가 아니거나, 공백입니다.');
+        else if (num < 1 || num > 9) alert('1부터 9사이의 값을 입력하세요.');
+        else for (let i = 1; i < 10; i++) document.write(`${num} x ${i} = ${num * i}<br>`);
+
+        let n = 2;
+        for (let i = 2; i < 120; i++) {
+            console.log(`${i} : ${(n * 2).toLocaleString()}`);
+            n *= 2;
+        }
+    </script>
+</body>
+
+</html>

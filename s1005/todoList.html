@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li { margin: 5px 0; }
+    </style>
+</head>
+
+<body>
+    <h1>할일 목록</h1>
+    title : <input type="text" id="title">
+    <button id="addBtn">Add 버튼</button>
+    <ul id="list"></ul>
+
+    <script>
+        const todoList = [];
+        const title = document.querySelector("#title");
+        const addBtn = document.querySelector("#addBtn");
+        const list = document.querySelector("#list");
+
+        window.addEventListener("keydown", e => { if (e.keyCode == 13) addList(); });
+        addBtn.addEventListener('click', () => addList());
+
+        function addList() {
+            const value = title.value;
+            todoList.push(value);
+            title.value = "";
+            drawList();
+        }
+
+        function drawList() {
+            list.innerHTML = "";
+            todoList.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = item;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>
