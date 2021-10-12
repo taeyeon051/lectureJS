@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0110 todoList</title>
+    <style>
+        li.active {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">할일 목록</h1>
+    <button id="add-btn">목록 추가하기</button>
+    <ul id="list">
+        <li data-idx="1">할일 1</li>
+        <li data-idx="2">할일 2</li>
+        <li data-idx="3">할일 3</li>
+    </ul>
+
+    <script>
+        const log = console.log;
+
+        class App {
+            constructor() {
+                this.title = document.querySelector("#title");
+                this.list = document.querySelector("#list");
+                this.addBtn = document.querySelector("#add-btn");
+                this.activeIdx = 0;
+                this.idx = 3;
+
+                this.addEvent();
+            }
+
+            addEvent() {
+                const { addBtn, list } = this;
+                addBtn.addEventListener("click", () => {
+                    const txt = prompt("제목 입력");
+
+                    if (txt.trim() === "") alert("할일을 입력하세요.");
+                    else {
+                        this.idx++;
+                        const li = document.createElement("li");
+                        li.dataset.idx = this.idx;
+                        li.innerHTML = txt;
+                        list.appendChild(li);
+                    }
+                });
+
+                list.addEventListener("click", this.activeItem);
+            }
+
+            activeItem = e => {
+                const { title, list, activeIdx } = this;
+                if (e.target.nodeName == "LI") {
+                    title.innerHTML = e.target.innerText;
+                    const li = list.querySelector(`li[data-idx='${activeIdx}']`);
+                    if (li != null) list.querySelector(`li[data-idx='${activeIdx}']`).classList.remove("active");
+                    e.target.classList.add("active");
+                    this.activeIdx = e.target.dataset.idx;
+                }
+            }
+        }
+
+        const app = new App();
+    </script>
+</body>
+
+</html>
