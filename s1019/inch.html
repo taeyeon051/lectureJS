@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/converter1.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>인치 &xhArr; 센티미터 단위 변환기</h2>
+        <div class="change">
+            <div class="box" id="source">
+                <input type="text" id="s-value" onkeyup="converter()">
+                <span class="unit" id="s-unit">inch</span>
+            </div>
+            <span id="exchange" onclick="exUnit()">&xhArr;</span>
+            <div class="box" id="target">
+                <input type="text" id="t-value">
+                <span class="unit" id="t-unit">cm</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/converter-result1.js"></script>
+</body>
+
+</html>
